@@ -1,0 +1,14 @@
+*intending on using python3.7 with TF2-gpu and keras-gpu*
+
+-python 3.7
+
+-keras-gpu=2.3.1  -->
+	-cudnn=7.6.5
+	-cudatoolkit=10.1.243
+	-numpy=1.19.2
+	-tensorflow-gpu=2.1.0
+-matplotlib (default=3.3.2)  -->
+	-pillow=8.0.1
+-jupyter notebook (default=6.1.4)
+-pip install mtcnn (default=0.1.0)  -->
+	opencv-python-4.4.0.46
