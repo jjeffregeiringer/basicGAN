@@ -1,6 +1,6 @@
 #basic keras GAN using celebA
 
-from os import makedirs
+import os
 from numpy import load
 from numpy import zeros
 from numpy import ones
@@ -62,19 +62,19 @@ def define_generator(latent_dim):
     model.add(Dense(n_nodes, input_dim=latent_dim))
     model.add(LeakyReLU(alpha=0.2))
     model.add(Reshape((5, 5, 128)))
-    #upsample to 10x10
+    #upsample to 10x10 x64?
     model.add(Conv2DTranspose(128, (4,4), strides=(2,2), padding='same'))
     model.add(LeakyReLU(alpha=0.2))
-    #upsample to 20x20
+    #upsample to 20x20 x32?
     model.add(Conv2DTranspose(128, (4,4), strides=(2,2), padding='same'))
     model.add(LeakyReLU(alpha=0.2))
-    #upsample to 40x40
+    #upsample to 40x40 x16?
     model.add(Conv2DTranspose(128, (4,4), strides=(2,2), padding='same'))
     model.add(LeakyReLU(alpha=0.2))
-    #upsample to 80x80
+    #upsample to 80x80 x8?
     model.add(Conv2DTranspose(128, (4,4), strides=(2,2), padding='same'))
     model.add(LeakyReLU(alpha=0.2))
-    #output conv2D layer to get RGB?! -> 80x80x3
+    #output conv2D layer to get RGB?! -> 80x80x3 padding-same targets last column in array? so its dividing 8 by 3 to yield 3
     model.add(Conv2D(3, (5,5), activation='tanh', padding='same'))
     
     return model
